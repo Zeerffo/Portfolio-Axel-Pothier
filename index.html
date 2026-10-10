@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Axel Pothier · Portfolio</title>
+<meta name="description" content="Portfolio d'Axel Pothier, étudiant ingénieur en informatique à l'EPITA : jeux vidéo, web, pixel art.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Fond : image fixe qui s'assombrit au défilement (voir script.js) -->
+<div id="bg" aria-hidden="true"><img id="bgi" src="images/bg.jpg" alt=""><div id="dim"></div></div>
+
+<!-- Navigation : chaque lien pointe vers l'id d'un bloc -->
+<nav class="nav" aria-label="Navigation principale">
+  <a href="#top">Accueil</a><a href="#projets">Projets</a><a href="#competences">Compétences</a><a href="#parcours">Parcours</a><a href="#contact">Contact</a>
+</nav>
+
+<!-- Accueil -->
+<header class="hero" id="top">
+  <div class="wrap" id="hw">
+    <h1 class="rise">Axel Pothier</h1>
+    <p class="sub rise" style="--d:.2s">Étudiant ingénieur à l’EPITA.</p>
+    <div class="pills rise" style="--d:.4s">
+      <a class="pill" href="mailto:axelpothier007@gmail.com">Écrire un mail</a>
+      <a class="pill ghost" href="#projets">Voir les projets</a>
+    </div>
+  </div>
+  <div class="look" id="lk"><b>↓</b>Regardez autour de vous…</div>
+</header>
+
+<!--
+  TABLEAU DE BLOCS
+  Chaque bloc est un <article>/<button> avec une classe de zone (about, arena, lang…).
+  La taille et la place de chaque zone se règlent dans style.css, section « Disposition ».
+  Pour ajouter un bloc : copiez-en un, donnez-lui une nouvelle classe, puis placez-la dans la grille.
+-->
+<main class="wrap board">
+
+  <!-- À propos -->
+  <article class="blk about rv">
+    <div class="tb"><i></i><i></i><i></i><span>a_propos.md</span></div>
+    <div class="bd">
+      <p>je fais des jeux, des sites et un peu de pixel art.</p>
+      <p>je crois qu’un bon jeu, c’est du code et du dessin.</p>
+      <p>je crois qu’on apprend en construisant, et qu’un bug compris vaut mieux qu’un bug caché.</p>
+      <p class="end">je cherche un stage pour construire avec une équipe. <a href="#contact">Parlons-en.</a></p>
+    </div>
+  </article>
+
+  <!-- Projets (cliquables : le détail est dans les <template> en bas de page) -->
+  <button class="blk proj arena rv" id="projets" data-p="arena" aria-haspopup="dialog" aria-label="Apocalypse Arena, voir le détail">
+    <img src="images/carte.jpg" alt="">
+    <div class="ov"><b>Apocalypse Arena</b></div>
+  </button>
+  <button class="blk proj site rv" data-p="site" aria-haspopup="dialog" aria-label="Ce portfolio, voir le détail">
+    <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8d8d8d"/><stop offset="1" stop-color="#ececec"/></linearGradient></defs><rect width="320" height="200" fill="url(#sg)"/><path d="M0 110C70 85 130 88 190 105C250 123 290 98 320 90V200H0Z" fill="#1d1d1f"/><path d="M0 160C90 150 150 125 200 112C250 100 290 106 320 98V200H0Z" fill="#0d0d0e"/></svg>
+    <div class="ov"><b>Ce portfolio</b></div>
+  </button>
+  <button class="blk proj ocr rv" data-p="ocr" aria-haspopup="dialog" aria-label="OCR Word Search Solver, projet en cours, voir le détail">
+    <img src="images/ocr_bin.jpg" alt="">
+    <span class="badge">en cours</span>
+    <div class="ov"><b>OCR Word Search Solver</b></div>
+  </button>
+
+  <!-- Compétences -->
+  <article class="blk lang rv" id="competences">
+    <div class="tb"><i></i><i></i><i></i><span>langages</span></div>
+    <div class="bd">
+      <div class="sk">Python<span class="pips" data-l="4"></span></div>
+      <div class="sk">C<span class="pips" data-l="3"></span></div>
+      <div class="sk">Caml<span class="pips" data-l="3"></span></div>
+      <div class="sk">HTML / CSS<span class="pips" data-l="3"></span></div>
+      <div class="sk">JavaScript<span class="pips" data-l="2"></span></div>
+    </div>
+  </article>
+  <article class="blk jeu rv">
+    <div class="tb"><i></i><i></i><i></i><span>jeu_video</span></div>
+    <div class="bd">
+      <div class="sk">Pygame<span class="pips" data-l="3"></span></div>
+      <div class="sk">Tiled (cartes)<span class="pips" data-l="3"></span></div>
+      <div class="sk">Pixel art, Aseprite<span class="pips" data-l="3"></span></div>
+      <div class="sk">Animation par sprites<span class="pips" data-l="3"></span></div>
+    </div>
+  </article>
+  <article class="blk outils rv">
+    <div class="tb"><i></i><i></i><i></i><span>outils</span></div>
+    <div class="bd">
+      <div class="sk">Visual Studio Code<span class="pips" data-l="4"></span></div>
+      <div class="sk">Pack Office<span class="pips" data-l="4"></span></div>
+      <div class="sk">SDL2<span class="pips" data-l="2"></span></div>
+      <div class="sk">Git<span class="pips" data-l="2"></span></div>
+    </div>
+  </article>
+  <article class="blk soft rv">
+    <div class="tb"><i></i><i></i><i></i><span>savoir_etre</span></div>
+    <div class="bd"><div class="tags"><span>autonomie</span><span>créativité</span><span>organisation</span><span>adaptabilité</span><span>travail d’équipe</span></div></div>
+  </article>
+  <aside class="blk sticker note rv"><b>Lire les niveaux</b>5 pastilles : expert. 3 : à l’aise en projet. 1 : notions.</aside>
+
+  <!-- Parcours -->
+  <article class="blk epita rv" id="parcours">
+    <div class="tb"><i></i><i></i><i></i><span>epita</span></div>
+    <div class="bd"><span class="mono">2025 → 2030</span><h3>EPITA, école d’ingénieurs en informatique</h3><p>Titre d’ingénieur CTi. Je suis en semestre 3, au milieu de la deuxième année.</p>
+      <div class="prog" style="--w:40%" role="img" aria-label="Année 2 sur 5"><i></i></div></div>
+  </article>
+  <article class="blk lycee rv">
+    <div class="tb"><i></i><i></i><i></i><span>lycee</span></div>
+    <div class="bd"><span class="mono">2025</span><h3>Bac général</h3><p>Lycée Saint-Charles. Maths, NSI et option Maths expertes.</p></div>
+  </article>
+  <article class="blk auchan rv">
+    <div class="tb"><i></i><i></i><i></i><span>auchan_2026</span></div>
+    <div class="bd"><span class="mono">été 2026</span><h3>Fromager chez Auchan Caluire</h3><p>CDD étudiant au stand fromagerie, en équipe : contact client, discipline et sens du service.</p></div>
+  </article>
+  <article class="blk bd24 rv">
+    <div class="tb"><i></i><i></i><i></i><span>liberation_2024</span></div>
+    <div class="bd"><span class="mono">2024</span><h3>80 ans de la Libération de Lyon</h3><p>Une bande dessinée exposée à l’Hôtel de Ville, puis un discours place Bellecour.</p></div>
+  </article>
+  <article class="blk stage rv">
+    <div class="tb"><i></i><i></i><i></i><span>stage_2022</span></div>
+    <div class="bd"><span class="mono">2022</span><h3>Stage en agence d’architecture</h3><p>Maquettes, réunions de projet, échanges avec les fournisseurs.</p></div>
+  </article>
+  <article class="blk baby rv">
+    <div class="tb"><i></i><i></i><i></i><span>baby_sitting</span></div>
+    <div class="bd"><span class="mono">depuis 2021</span><h3>Baby-sitting</h3><p>Enfants de 2 à 12 ans. On y apprend vite l’adaptation.</p></div>
+  </article>
+  <article class="blk langues rv">
+    <div class="tb"><i></i><i></i><i></i><span>langues</span></div>
+    <div class="bd">
+      <div class="sk">Anglais · B2</div><div class="prog" style="--w:75%"><i></i></div>
+      <div class="sk" style="margin-top:.6rem">Espagnol · B1</div><div class="prog" style="--w:55%"><i></i></div>
+    </div>
+  </article>
+  <aside class="blk sticker hors rv"><b>Hors écran</b>Sports collectifs, jeu vidéo et voyages.</aside>
+
+  <!-- Contact -->
+  <article class="blk contact rv" id="contact">
+    <h2>écrivez-moi.</h2>
+    <div class="pills">
+      <a class="pill" href="mailto:axelpothier007@gmail.com">Écrire un mail</a>
+      <button class="pill ghost" id="cp" type="button">Copier l’adresse</button>
+      <span id="toast" role="status">Copié</span>
+    </div>
+  </article>
+</main>
+
+<footer><div class="wrap">© 2026 Axel Pothier</div></footer>
+
+<!-- Fenêtre de détail (remplie depuis les <template> ci-dessous) -->
+<dialog id="dlg" aria-label="Détail du projet"><button class="x" id="cl" aria-label="Fermer">×</button><div class="dl" id="dc"></div></dialog>
+
+<!-- DÉTAIL DES PROJETS : modifiez librement le texte. L'id doit rester « t-» + data-p du bloc. -->
+<template id="t-arena">
+  <span class="mono">Projet d’équipe · 5 étudiants · EPITA</span>
+  <h3>Apocalypse Arena</h3>
+  <p>Un jeu de stratégie inspiré de League of Legends, dans une ville abandonnée reprise par la végétation. Deux camps s’affrontent et doivent détruire le générateur adverse. Vue isométrique, pixel art, tout en Python.</p>
+  <h4>Ma part</h4>
+  <ul>
+    <li>La direction artistique et les assets : personnages, sbires, décors, sous Aseprite.</li>
+    <li>La carte, construite en plusieurs couches avec Tiled.</li>
+    <li>Les collisions, les animations par spritesheets et l’ordre d’affichage pour la profondeur.</li>
+    <li>Le site vitrine du jeu en HTML, CSS et JavaScript.</li>
+  </ul>
+  <h4>Ce qui m’a donné du fil à retordre</h4>
+  <ul>
+    <li>Des tilesets de tailles différentes qui créaient des décalages sur la carte.</li>
+    <li>Des calques décalés de quelques pixels à l’import, corrigés en reprenant la gestion des coordonnées.</li>
+    <li>La profondeur : le joueur doit passer devant ou derrière les décors. Ça marche presque partout, il reste quelques cas à régler.</li>
+    <li>JavaScript, que je ne connaissais pas avant le site du jeu.</li>
+  </ul>
+  <p class="note">Un bug que je n’oublierai pas : l’image tremblait quand la caméra bougeait. La caméra et les objets n’étaient pas alignés. Il a suffi d’arrondir les positions avant l’affichage.</p>
+  <div class="fig2">
+    <figure><img src="images/carte.jpg" alt="Carte du jeu"><figcaption>La carte et ses couches.</figcaption></figure>
+    <figure><img src="images/profondeur.jpg" alt="Joueur caché par un bâtiment"><figcaption>Profondeur : le joueur passe derrière le bâtiment.</figcaption></figure>
+  </div>
+  <h4>Outils</h4>
+  <div class="tags"><span>Python</span><span>Pygame</span><span>Tiled</span><span>Aseprite</span><span>HTML / CSS / JS</span><span>VS Code</span></div>
+</template>
+
+<template id="t-ocr">
+  <span class="mono">Projet de groupe · 4 étudiants · EPITA · en cours</span>
+  <h3>OCR Word Search Solver</h3>
+  <p>Un logiciel en C qui lit l’image d’une grille de mots cachés, reconnaît les lettres avec un réseau de neurones et affiche la grille résolue. Le projet dure de septembre à décembre.</p>
+  <h4>Ce que j’ai fait pour l’instant</h4>
+  <ul>
+    <li>Le chargement d’une image, convertie en pixels RGBA pour que tous les formats se traitent de la même façon.</li>
+    <li>La sauvegarde du résultat en PNG.</li>
+    <li>Le passage en niveaux de gris, avec une moyenne pondérée des couleurs.</li>
+    <li>Le passage en noir et blanc, avec un seuil réglable.</li>
+  </ul>
+  <div class="fig1">
+    <figure><img src="images/ocr_niveau1.jpg" alt="Grille de niveau 1, en niveaux de gris puis en noir et blanc"><figcaption>Niveau 1 : image d’origine, niveaux de gris, noir et blanc (seuil de démonstration : 128).</figcaption></figure>
+    <figure><img src="images/ocr_niveau3.jpg" alt="Grille de niveau 3, en niveaux de gris puis en noir et blanc"><figcaption>Niveau 3 : le cadre orange disparaît et les lettres restent, mais les oiseaux restent en noir.</figcaption></figure>
+  </div>
+  <p class="note">Le seuil fixe marche bien sur une grille nette. Sur les images de niveau 2 ou 3, il faudra un seuil qui s’adapte à l’image, et séparer la grille des dessins à l’étape de détection.</p>
+  <h4>La suite, avec l’équipe</h4>
+  <ul><li>Rotation de l’image, détection de la grille et des lettres, découpage.</li><li>Résolution de la grille (programme solver).</li><li>Réseau de neurones, puis interface graphique.</li></ul>
+  <h4>Outils</h4>
+  <div class="tags"><span>C</span><span>SDL2</span><span>SDL2_image</span><span>Git</span></div>
+</template>
+
+<template id="t-site">
+  <span class="mono">Projet personnel · seul</span>
+  <h3>Ce portfolio</h3>
+  <p>J’ai voulu un site calme, qui ressemble à un bureau qu’on explore plus qu’à un template. Le fond est une photo de dunes que j’aime, qui s’assombrit quand on descend.</p>
+  <h4>Ce que j’y ai fait</h4>
+  <ul>
+    <li>La mise en page, la palette et les textes.</li>
+    <li>Un tableau de blocs de tailles différentes, regroupés par thème.</li>
+    <li>Les fenêtres de détail des projets, accessibles au clavier.</li>
+    <li>Des animations discrètes, désactivées si l’appareil le demande.</li>
+  </ul>
+  <h4>Outils</h4>
+  <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+</template>
+
+<script src="script.js"></script>
+</body>
+</html>
